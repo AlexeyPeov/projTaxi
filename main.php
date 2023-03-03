@@ -6,11 +6,11 @@ $regExpPhoneNum = "/^\s?(\+\s?7|8)([- ()]*\d){10}$/";
 $regExpDateOfBirth = "/^\s?([- ]*\d){8}/";
 
 $host = 'localhost';
-$db   = 'taxi';
-$user = 'postgres';
+$db   = 'taxiapp';
+$user = 'root';
 $pass = 'fuck';
 
-$dsn = 'pgsql:host=' . $host . ";dbname=" . $db;
+$dsn = 'mysql:host=' . $host . ";dbname=" . $db;
 
 $connection = new PDO($dsn, $user, $pass);
 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
@@ -40,7 +40,4 @@ $arr = json_decode($file, true);
 //$orderService->clientTaken(4,2);
 // $orderService->reviewOrder(4,1, 5);
 
-//$orderService->createOrder("ass","eater",new DateTime("1992-08-12"),"+8777 23 42 423","DOM","RABOTA",1);
-
-$m = new Migration($connection);
-$m->up();
+$orderService->createOrder("ass","eater",new DateTime("1992-08-12"),"+8777 23 42 423","DOM","RABOTA",1);
