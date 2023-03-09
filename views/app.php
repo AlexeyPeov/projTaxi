@@ -63,9 +63,10 @@
     </style>
 </head>
 <body>
-@yield('header')
+<!--@yield('header')-->
 <main>
-    @yield('content')
+<!--    @yield('content')-->
+    <?php echo $content; ?>
 </main>
 
 <footer>

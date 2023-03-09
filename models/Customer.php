@@ -5,6 +5,10 @@ require_once("classes.php");
 class Customer
 {
     private ?int $id;
+
+    private ?string $password;
+    private string $user_type;
+
     private ?string $firstName;
     private ?string $secondName;
     private ?DateTime $birthday;

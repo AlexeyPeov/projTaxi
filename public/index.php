@@ -1,14 +1,23 @@
 <?php
 
-require_once('classes.php');
+require 'debug.php';
 
-$regExpPhoneNum = "/^\s?(\+\s?7|8)([- ()]*\d){10}$/";
+/*require_once('classes.php');*/
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+if($uri = '/') {
+    require '../views/main.php';
+}
+
+/*$regExpPhoneNum = "/^\s?(\+\s?7|8)([- ()]*\d){10}$/";
 $regExpDateOfBirth = "/^\s?([- ]*\d){8}/";
 
 $host = 'localhost';
 $db   = 'taxiapp';
 $user = 'root';
 $pass = 'fuck';
+
 
 $dsn = 'mysql:host=' . $host . ";dbname=" . $db;
 
@@ -27,17 +36,17 @@ $file = file_get_contents("jopa.json");
 
 $arr = json_decode($file, true);
 
-// $orderService->createOrder(
-//     $arr["firstName"],
-//     "Обабус",
-//     new DateTime("1992-12-04"),
-//     "+7824 522 52 32",
-//     "Бабушка",
-//     "дедушка",
-//     Car::FIRST
-// );
-//$orderService->takeOrder(4, 2);
-//$orderService->clientTaken(4,2);
-// $orderService->reviewOrder(4,1, 5);
+ $orderService->createOrder(
+     $arr["firstName"],
+     "Обабус",
+     new DateTime("1992-12-04"),
+     "+7824 522 52 32",
+     "Бабушка",
+     "дедушка",
+     Car::FIRST
+ );
+$orderService->takeOrder(4, 2);
+$orderService->clientTaken(4,2);
+ $orderService->reviewOrder(4,1, 5);
 
-$orderService->createOrder("ass","eater",new DateTime("1992-08-12"),"+8777 23 42 423","DOM","RABOTA",1);
+$orderService->createOrder("ass","eater",new DateTime("1992-08-12"),"+8777 23 42 423","DOM","RABOTA",1);*/

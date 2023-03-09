@@ -12,30 +12,35 @@ class Migration
     public function up()
     {
         $create = "
-            CREATE TABLE car (
-            id INT NOT NULL AUTO_INCREMENT,
-            brand VARCHAR(50) NOT NULL,
-            plates VARCHAR(20) NOT NULL,
-            color VARCHAR(50) NOT NULL,
-            carClass INT NOT NULL,
-            PRIMARY KEY (id)
-                               
+            CREATE TABLE cars (
+            id SERIAL PRIMARY KEY,
+            brand VARCHAR(50),
+            plates VARCHAR(50),
+            color VARCHAR(50),
+            carClass INTEGER,
+            created_at TIMESTAMP,
+            updated_at TIMESTAMP
         );
 
-        CREATE TABLE customer (
-            id INT NOT NULL AUTO_INCREMENT,
-            firstName VARCHAR(50),
-            secondName VARCHAR(50),
-            birthday DATETIME,
-            personalDiscount INT,
-            phoneNum VARCHAR(20) NOT NULL,
-            orderCount INT,
-            orderDeclinedCount INT,
-            PRIMARY KEY (id)
+        CREATE TABLE customers (
+            id SERIAL PRIMARY KEY,
+            phoneNumber VARCHAR(20),
+            password VARCHAR(255) DEFAULT NULL,
+            firstName VARCHAR(50) DEFAULT NULL,
+            secondName VARCHAR(50) DEFAULT NULL,
+            birthday TIMESTAMP DEFAULT NULL,
+            personalDiscount INTEGER DEFAULT NULL,
+            orderCount INTEGER NOT NULL,
+            orderDeclinedCount INTEGER NOT NULL,
+            user_type VARCHAR(255) DEFAULT 'Customer',
+            created_at TIMESTAMP NOT NULL,
+            updated_at TIMESTAMP NOT NULL
         );
 
-        CREATE TABLE taxidriver (
+        CREATE TABLE taxi_drivers (
             id INT NOT NULL AUTO_INCREMENT,
+            phoneNumber VARCHAR(20),
+            password VARCHAR(255) NOT NULL,
             firstName VARCHAR(50) NOT NULL ,
             secondName VARCHAR(50) NOT NULL ,
             birthday DATETIME NOT NULL ,
@@ -45,24 +50,25 @@ class Migration
             carDriving INT,
             reviewHeap INT,
             reviewsGiven INT,
+            user_type VARCHAR(255) DEFAULT 'TaxiDriver',
             PRIMARY KEY (id),
-            FOREIGN KEY(carDriving) REFERENCES car(id)
+            FOREIGN KEY(carDriving) REFERENCES cars(id)
         );
 
-        CREATE TABLE `order` (
-            id INT NOT NULL AUTO_INCREMENT,
-            orderStatus INT NOT NULL,
-            customerId INT,
-            taxiDriverId INT,
-            class INT NOT NULL,
+        CREATE TABLE orders (
+            id SERIAL PRIMARY KEY,
+            taxiDriverId INTEGER,
+            customerId INTEGER,
+            orderStatus INTEGER NOT NULL,
+            class INTEGER NOT NULL,
             price FLOAT NOT NULL,
             pointA VARCHAR(50) NOT NULL,
-            pointB VARCHAR(50) NOT NULL,
-            dayCreated DATETIME NOT NULL,
-            reviewGiven BOOLEAN,
-            PRIMARY KEY (id),
-            FOREIGN KEY(taxiDriverId) REFERENCES taxidriver(id),
-           FOREIGN KEY (customerId) REFERENCES customer(id)
+            pointB VARCHAR(255) NOT NULL,
+            reviewGiven BOOLEAN DEFAULT NULL,
+            created_at TIMESTAMP NOT NULL,
+            updated_at TIMESTAMP NOT NULL,
+            FOREIGN KEY(taxiDriverId) REFERENCES taxi_drivers(id),
+            FOREIGN KEY (customerId) REFERENCES customers(id)
         );
         ";
         $this->connection->query($create);
@@ -71,10 +77,10 @@ class Migration
     public function down()
     {
         $delete = "
-                DROP TABLE `order`;
-                DROP TABLE taxidriver;
-                DROP TABLE car;
-                DROP TABLE customer;
+                DROP TABLE orders;
+                DROP TABLE taxi_drivers;
+                DROP TABLE cars;
+                DROP TABLE customers;
             
         ";
         $this->connection->query($delete);
