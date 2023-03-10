@@ -1,14 +1,28 @@
 <?php
 
+
 require 'debug.php';
+include '../config/routesMethods.php';
+$routes = include '../config/routes.php';
+initRouting($routes);
+
+/*$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+if ($uri == '/customer') {
+    require '../views/customers/index.php';
+}
+
+if ($uri == '/') {
+    require '../views/whoami.php';
+}*/
 
 /*require_once('classes.php');*/
 
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-if($uri = '/') {
+
+/*if($uri = '/') {
     require '../views/main.php';
-}
+}*/
 
 /*$regExpPhoneNum = "/^\s?(\+\s?7|8)([- ()]*\d){10}$/";
 $regExpDateOfBirth = "/^\s?([- ]*\d){8}/";

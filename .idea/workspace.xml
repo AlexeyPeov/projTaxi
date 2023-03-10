@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc34c26c-b2e9-4f38-88bf-6f991783ff4f" name="Changes" comment="" />
+    <list default="true" id="dc34c26c-b2e9-4f38-88bf-6f991783ff4f" name="Changes" comment="tested main route">
+      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/routesMethods.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auxillary /Router.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/customers/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/whoami.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,34 +49,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/www/test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/www/projTaxi/views/customers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.nodejs",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/customers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/taxi/resources/views/orders" />
       <recent name="$PROJECT_DIR$/taxi/resources/views/taxidrivers" />
       <recent name="$PROJECT_DIR$/taxi/resources/views/customers" />
       <recent name="$PROJECT_DIR$/taxi/public/js" />
-      <recent name="$PROJECT_DIR$/taxi/resources/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -84,7 +104,37 @@
       <workItem from="1677766188263" duration="12121000" />
       <workItem from="1677780096014" duration="6393000" />
       <workItem from="1677833944364" duration="18419000" />
+      <workItem from="1678437399773" duration="11773000" />
     </task>
+    <task id="LOCAL-00001" summary="yeah">
+      <created>1678369800139</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678369800139</updated>
+    </task>
+    <task id="LOCAL-00002" summary="just cleaning up man..">
+      <created>1678369881920</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678369881920</updated>
+    </task>
+    <task id="LOCAL-00003" summary="just cleaning up man..">
+      <created>1678369899734</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678369899734</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tested main route">
+      <created>1678376956247</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678376956247</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +150,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="yeah" />
+    <MESSAGE value="just cleaning up man.." />
+    <MESSAGE value="tested main route" />
+    <option name="LAST_COMMIT_MESSAGE" value="tested main route" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

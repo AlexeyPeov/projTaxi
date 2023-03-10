@@ -1,4 +1,5 @@
 <?php
+
 $content = '
     <div class="center">
         <button class="btn" id="passenger" onclick="location.href=\'/customer\'">I\'m a passenger</button>
@@ -6,4 +7,5 @@ $content = '
     </div>
 ';
 
-include "app.php";
+include "../views/app.php";
+

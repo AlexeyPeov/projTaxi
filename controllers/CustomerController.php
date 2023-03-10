@@ -1,15 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\Customer;
-use Illuminate\Http\Request;
-
-class CustomerController extends Controller
+class CustomerController
 {
 
-    public function index () {
-        return view ('customers.index');
+    public function index () : void {
+        require '../views/customers/index.php';
     }
 
     public function show () {

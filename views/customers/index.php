@@ -1,10 +1,8 @@
-@extends ('app')
-
-@section ('content')
-    <div class="form-container" style="display: flex;">
+<?php
+$content = '
+      <div class="form-container" style="display: flex;">
         <form action="/order/submit" method="POST">
             <b style="font-size: 40px;"> Create order</b> <br> <br> <br>
-            @csrf
             <label for="phoneNumber">Phone Number:</label><br>
             <input type="text" id="phoneNumber" name="phoneNumber" required><br>
 
@@ -33,5 +31,10 @@
             <input type="submit" value="Order">
         </form>
     </div>
-    <script src="../../../public/js/parsePhoneNumber.js"></script>
-@endsection
+    <script src="../../public/resources/js/parsePhoneNumber.js"></script>
+    ';
+
+include "../views/app.php";
+
+
+
