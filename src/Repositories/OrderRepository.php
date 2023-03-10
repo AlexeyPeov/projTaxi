@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories;
+
 class OrderRepository
 {
     private PDO $connection;

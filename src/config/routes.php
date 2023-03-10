@@ -1,4 +1,6 @@
 <?php
+namespace App\config;
+
 
 return
     [
@@ -9,7 +11,7 @@ return
 
         'guestRoutes' =>
             [
-                '/' => '../views/whoami.php',
+                '/' => ['GuestController', 'index'],
             ],
 
         'customerRoutes' => [

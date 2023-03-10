@@ -1,13 +1,13 @@
 {
-  "name": "myapp/myapp",
-  "description": "My awesome PHP app",
+  "name": "taxi/taxi",
   "type": "project",
   "require": {
-    "php": "^8.1"
+    "php": "^8.1",
+    "ext-pdo": "*"
   },
   "autoload": {
     "psr-4": {
-      "ProjTaxi\\Controllers\\": "controllers/"
+      "App\\": "src/"
     }
   }
 }

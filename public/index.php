@@ -1,10 +1,50 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
 
-require 'debug.php';
-include '../config/routesMethods.php';
-$routes = include '../config/routes.php';
-initRouting($routes);
+use App\App;
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+App::init();
+
+
+
+
+
+
+
+
+/*// Define your routes and their callbacks
+$router->addRoute('/', function() {
+   include '../src/Views/whoami.php';
+});
+
+$router->addRoute('/customer', function() {
+    include '../src/Views/customers/index.php';
+});
+
+// Get the requested route from the URL
+$route = $_SERVER['REQUEST_URI'];
+
+// Dispatch the route
+$response = $router->dispatch($route);
+
+// Output the response
+echo $response;*/
+
+//$routes = include '../src/config/routes.php';
+
+/*dd($routes);
+initRouting($routes);*/
+
+/*$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+if ($uri == '/') {
+    require '../src/Views/whoami.php';
+}*/
 
 /*$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 

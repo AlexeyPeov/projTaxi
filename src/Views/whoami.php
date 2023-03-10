@@ -6,6 +6,4 @@ $content = '
         <button class="btn" id="driver" onclick="location.href=\'/taxidriver\'">I\'m a driver</button>
     </div>
 ';
-
-include "../views/app.php";
-
+include __DIR__ . "/app.php";

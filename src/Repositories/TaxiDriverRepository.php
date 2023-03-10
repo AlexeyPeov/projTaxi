@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Repositories;
 class TaxiDriverRepository
 {
     private PDO $connection;

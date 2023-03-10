@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Repositories;
+
+
+use PDO;
+
 class CarRepository
 {
     private PDO $connection;
@@ -9,7 +14,7 @@ class CarRepository
         $this->connection = $connection;
     }
 
-    public function findById(int $id):?Car
+    public function findById(int $id): ?Car
     {
 
         $specificCar = "SELECT * FROM car WHERE id = :id";
@@ -17,21 +22,21 @@ class CarRepository
         $statement->execute(["id" => $id]);
         $car = $statement->fetch();
 
-        if($car !==false) {
-            return new Car($car->id, $car->brand, $car->plates, $car->color, $car->carClass );
+        if ($car !== false) {
+            return new Car($car->id, $car->brand, $car->plates, $car->color, $car->carClass);
         }
         return null;
     }
 
-    public function findByPlates(string $plates):?Car
+    public function findByPlates(string $plates): ?Car
     {
         $specificCar = "SELECT * FROM car WHERE plates = :plates";
         $statement = $this->connection->prepare($specificCar);
         $statement->execute(["plates" => $plates]);
         $car = $statement->fetch();
 
-        if($car !==false) {
-            return new Car($car->id, $car->brand, $car->plates, $car->color, $car->carClass );
+        if ($car !== false) {
+            return new Car($car->id, $car->brand, $car->plates, $car->color, $car->carClass);
         }
         return null;
     }

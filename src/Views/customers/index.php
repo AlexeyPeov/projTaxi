@@ -31,10 +31,10 @@ $content = '
             <input type="submit" value="Order">
         </form>
     </div>
-    <script src="../../public/resources/js/parsePhoneNumber.js"></script>
+    <script src="/resources/js/parsePhoneNumber.js"></script>
     ';
 
-include "../views/app.php";
+include __DIR__ . "/../app.php";
 
 
 

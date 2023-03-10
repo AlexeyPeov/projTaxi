@@ -1,17 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Controllers;
 
-use App\Models\Car;
-use App\Models\Customer;
-use App\Models\Order;
-use App\Models\TaxiDriver;
-use Illuminate\Console\Application;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 
-class OrderController extends Controller
+class OrderController
 {
     public function index()
     {

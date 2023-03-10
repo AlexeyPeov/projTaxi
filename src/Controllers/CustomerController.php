@@ -1,10 +1,11 @@
 <?php
 
+namespace App\Controllers;
 class CustomerController
 {
 
     public function index () : void {
-        require '../views/customers/index.php';
+        require '../Views/customers/index.php';
     }
 
     public function show () {

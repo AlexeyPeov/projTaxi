@@ -1,6 +1,8 @@
 <?php
 
-require_once("classes.php");
+namespace App\Models;
+
+use DateTime;
 
 class Customer
 {
@@ -141,7 +143,7 @@ class Customer
         }
     }
 
-    public function declinedOrder():void
+    public function declinedOrder(): void
     {
         $this->orderDeclinedCount = +1;
     }

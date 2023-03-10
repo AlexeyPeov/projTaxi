@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Services;
+
+
 class OrderService
 {
     private OrderRepository $orderRepository;
@@ -8,10 +11,10 @@ class OrderService
     private CarRepository $carRepository;
 
     public function __construct(
-        OrderRepository $orderRepository,
-        CustomerRepository $customerRepository,
+        OrderRepository      $orderRepository,
+        CustomerRepository   $customerRepository,
         TaxiDriverRepository $taxiDriverRepository,
-        CarRepository $carRepository
+        CarRepository        $carRepository
     )
     {
         $this->orderRepository = $orderRepository;
@@ -119,7 +122,7 @@ class OrderService
         $this->orderRepository->save($order);
     }
 
-    public function reviewOrder(int $orderId, int $customerId, int $review):void
+    public function reviewOrder(int $orderId, int $customerId, int $review): void
     {
         $order = $this->orderRepository->findById($orderId);
         $customer = $this->customerRepository->findById($customerId);
@@ -152,17 +155,17 @@ class OrderService
     {
         $order = $this->orderRepository->findById($orderId);
         $customer = $this->customerRepository->findById($customerId);
-            if (
-                $order !== null &&
-                $customer !== null &&
-                ($order->getStatus() == $order::STATE_NEW || $order->getStatus() == $order::STATE_ACCEPTED) &&
-                $order->getCustomerId() == $customerId
-            ) {
-                $order->failed();
-                $customer->declinedOrder();
-                $this->orderRepository->save($order);
-                $this->customerRepository->save($customer);
-            }
+        if (
+            $order !== null &&
+            $customer !== null &&
+            ($order->getStatus() == $order::STATE_NEW || $order->getStatus() == $order::STATE_ACCEPTED) &&
+            $order->getCustomerId() == $customerId
+        ) {
+            $order->failed();
+            $customer->declinedOrder();
+            $this->orderRepository->save($order);
+            $this->customerRepository->save($customer);
+        }
 
 
     }
@@ -173,17 +176,17 @@ class OrderService
     {
         $taxiDriver = $this->taxiDriverRepository->findById($taxiDriverId);
         $order = $this->orderRepository->findNewOrderById($orderId);
-            if ($taxiDriver !== null) { // если есть таксист, продолжить
-                $car = $this->carRepository->findById($taxiDriver->getCarDriving());
-                if (
-                    $order !== null &&
-                    $car->getCarClass() == $order->getClass() &&
-                    $order->getOrderStatus() == Order::STATE_NEW
-                ) {
-                    $order->accepted();
-                    $order->setTaxiDriverId($taxiDriverId);
-                    $this->orderRepository->save($order);
-                }
+        if ($taxiDriver !== null) { // если есть таксист, продолжить
+            $car = $this->carRepository->findById($taxiDriver->getCarDriving());
+            if (
+                $order !== null &&
+                $car->getCarClass() == $order->getClass() &&
+                $order->getOrderStatus() == Order::STATE_NEW
+            ) {
+                $order->accepted();
+                $order->setTaxiDriverId($taxiDriverId);
+                $this->orderRepository->save($order);
+            }
         }
     } // взять заказ
 
@@ -191,7 +194,7 @@ class OrderService
     {
         $order = $this->orderRepository->findById($orderId);
         $taxiDriver = $this->taxiDriverRepository->findById($taxiDriverId);
-        if($taxiDriver !== null) {// если есть такой таксист
+        if ($taxiDriver !== null) {// если есть такой таксист
             if (
                 $order !== null &&
                 $order->getStatus() == Order::STATE_ACCEPTED &&
@@ -209,7 +212,7 @@ class OrderService
     {
         $order = $this->orderRepository->findById($orderId);
         $taxiDriver = $this->taxiDriverRepository->findById($taxiDriverId);
-        if($taxiDriver !== null) { // если есть таксист
+        if ($taxiDriver !== null) { // если есть таксист
             if (
                 $order !== null &&
                 $order->getStatus() == Order::STATE_ACCEPTED &&

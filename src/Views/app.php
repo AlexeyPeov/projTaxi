@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,9 +66,7 @@
     </style>
 </head>
 <body>
-<!--@yield('header')-->
 <main>
-<!--    @yield('content')-->
     <?php echo $content; ?>
 </main>
 

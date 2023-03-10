@@ -1,15 +1,8 @@
 <?php
+namespace App\Controllers;
 
-namespace App\Http\Controllers;
 
-use App\Models\Car;
-use App\Models\Order;
-use App\Models\TaxiDriver;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
-
-class TaxiDriverController extends Controller
+class TaxiDriverController
 {
     public function index (){
         return view('taxidrivers.index');

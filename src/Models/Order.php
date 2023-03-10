@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use DateTime;
+
 class Order
 {
     private ?int $id;
@@ -27,17 +31,17 @@ class Order
 
 
     public function __construct(
-        ?int     $id,
-        int      $orderStatus,
-        int      $customerId,
-        ?int     $taxiDriverId,
-        int      $class,
-        float    $price,
-        string   $pointA,
-        string   $pointB,
+        ?int      $id,
+        int       $orderStatus,
+        int       $customerId,
+        ?int      $taxiDriverId,
+        int       $class,
+        float     $price,
+        string    $pointA,
+        string    $pointB,
         ?DateTime $dayCreated,
-        bool     $reviewGiven,
-        bool     $isSaved
+        bool      $reviewGiven,
+        bool      $isSaved
 
     )
     {
@@ -211,7 +215,7 @@ class Order
         return $this->price;
     }
 
-    public function calculateDayCreated():DateTime
+    public function calculateDayCreated(): DateTime
     {
         $dateCreated = new DateTime();
         $this->dayCreated = $dateCreated;

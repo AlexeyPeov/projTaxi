@@ -1,8 +1,11 @@
 <?php
-include "../controllers/CarController.php";
-include "../controllers/CustomerController.php";
-include "../controllers/TaxiDriverController.php";
-include "../controllers/OrderController.php";
+
+namespace App\config;
+
+use App\Controllers\CarController;
+use App\Controllers\CustomerController;
+use App\Controllers\GuestController;
+use App\Controllers\OrderController;
 
 /*function initRouting(array $routes) : void{
     $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -42,6 +45,7 @@ function errorPage(int $errorCode, array $routes) : void {
 function initRouting(array $routes) : void {
     $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
     $method = $_SERVER['REQUEST_METHOD'];
+
 
     foreach ($routes as $routeGroup) {
         foreach ($routeGroup as $routePath => $controller) {
