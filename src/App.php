@@ -2,18 +2,19 @@
 
 namespace App;
 
-use App\config\ORM;
-use App\config\RouteLoader;
-use App\config\Router;
+use App\Framework\ORM;
+use App\Framework\RouteLoader;
+use App\Framework\Router;
+use App\Models\Order;
+use App\Services\OrderService;
 use PDO;
 
 
 class App
 {
     public function init(){
-        //routes
-        $router = new Router();
-        $router->initRouting(RouteLoader::get());
+
+        session_start();
 
         //db connection
         $env = parse_ini_file(__DIR__ . '/../.env');
@@ -26,22 +27,12 @@ class App
         $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
         $ORM = new ORM($connection);
-        /*$car = $ORM->createModel('cars');
-        $car1 = $ORM->findById('cars', 2);
-        $car1->brand = "ASDASDASD";
-        $car1->updated_at = date('Y-m-d H:i:s');
-        $ORM->push('cars', $car1);
-        $car->brand = 'aboba';
-        $car->plates = '02AS-SS';*/
+        $orderService = new OrderService($ORM);
 
-        $taxiDriver = $ORM->createModel('taxi_drivers');
-        $taxiDriver->phoneNumber = '+1234567890';
-        $taxiDriver->password = 'ajkasjf';
-        $taxiDriver->firstName = 'ajkasjf';
-        $taxiDriver->secondName = 'ajkasjf';
-        $taxiDriver->birthday = date('Y-m-d H:i:s');
+        //routes
+        $router = new Router($orderService);
+        $router->initRouting(RouteLoader::get());
 
-        $ORM->push('taxi_drivers', $taxiDriver);
 
     }
 }

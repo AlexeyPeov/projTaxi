@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\App;
-use App\config\ORM;
+use App\Framework\ORM;
 
 include 'debug.php';
 
@@ -32,7 +32,7 @@ $response = $router->dispatch($route);
 // Output the response
 echo $response;*/
 
-//$routes = include '../src/config/routes.php';
+//$routes = include '../src/Framework/routes.php';
 
 /*dd($routes);
 initRouting($routes);*/

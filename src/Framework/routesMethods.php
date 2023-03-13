@@ -1,6 +1,6 @@
 <?php
 
-namespace App\config;
+namespace App\Framework;
 
 use App\Controllers\CarController;
 use App\Controllers\CustomerController;

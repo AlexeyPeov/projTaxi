@@ -1,16 +1,19 @@
 <?php
 
-namespace App\config;
+namespace App\Framework;
 
 use App\Controllers\GuestController;
+use App\Services\OrderService;
 use Exception;
 
 
 class Router
 {
     private $routes = [];
+    private OrderService $orderService;
 
-    public function init() : void {
+    public function __construct(OrderService $orderService){
+        $this->orderService = $orderService;
     }
     public function addRoute($route, $callback): void
     {
@@ -35,7 +38,7 @@ class Router
             foreach ($routeGroup as $routePath => $controller) {
                 if ($uri === $routePath) {
                     list($controllerClass, $functionName) = $controller;
-                    $controllerClass = new $controllerClass();
+                    $controllerClass = new $controllerClass($this->orderService);
                     call_user_func([$controllerClass, $functionName]);
                     return;
                 }

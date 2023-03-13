@@ -11,67 +11,68 @@ class Migration
 
     public function up()
     {
-        $create = "
+        $create = '
             CREATE TABLE cars (
             id SERIAL PRIMARY KEY,
             brand VARCHAR(50),
             plates VARCHAR(50),
             color VARCHAR(50),
-            carClass INTEGER,
+            car_class INTEGER,
             created_at TIMESTAMP DEFAULT NOW(),
             updated_at TIMESTAMP DEFAULT NOW()
         );
 
         CREATE TABLE customers (
             id SERIAL PRIMARY KEY,
-            phoneNumber VARCHAR(20),
+            phone_number VARCHAR(20) UNIQUE,
             password VARCHAR(255) DEFAULT NULL,
-            firstName VARCHAR(50) DEFAULT NULL,
-            secondName VARCHAR(50) DEFAULT NULL,
+            first_name VARCHAR(50) DEFAULT NULL,
+            second_name VARCHAR(50) DEFAULT NULL,
             birthday TIMESTAMP DEFAULT NULL,
-            personalDiscount INTEGER DEFAULT NULL,
-            orderCount INTEGER NOT NULL,
-            orderDeclinedCount INTEGER NOT NULL,
-            user_type VARCHAR(255) DEFAULT 'Customer',
+            personal_discount INTEGER DEFAULT NULL,
+            order_count INTEGER NOT NULL,
+            order_declined_count INTEGER,
+            user_type VARCHAR(255) DEFAULT \'Customer\',
             created_at TIMESTAMP DEFAULT NOW(),
             updated_at TIMESTAMP DEFAULT NOW()
         );
 
         CREATE TABLE taxi_drivers (
             id SERIAL PRIMARY KEY,
-            phoneNumber VARCHAR(20),
+            phone_number VARCHAR(20) UNIQUE,
             password VARCHAR(255) NOT NULL,
-            firstName VARCHAR(50) NOT NULL ,
-            secondName VARCHAR(50) NOT NULL ,
+            first_name VARCHAR(50) NOT NULL ,
+            second_name VARCHAR(50) NOT NULL ,
             birthday TIMESTAMP NOT NULL ,
             experience INT,
             rating FLOAT,
             qualification varchar(20) NOT NULL,
-            carDriving INT,
-            reviewHeap INT,
-            reviewsGiven INT,
-            user_type VARCHAR(255) DEFAULT 'TaxiDriver',
+            car_driving INT,
+            review_heap INT,
+            reviews_given INT,
+            order_declined_count INTEGER,
+            user_type VARCHAR(255) DEFAULT \'TaxiDriver\',
             created_at TIMESTAMP DEFAULT NOW(),
             updated_at TIMESTAMP DEFAULT NOW(),
-            FOREIGN KEY(carDriving) REFERENCES cars(id)
+            FOREIGN KEY(car_driving) REFERENCES cars(id)
         );
 
         CREATE TABLE orders (
             id SERIAL PRIMARY KEY,
-            taxiDriverId INTEGER,
-            customerId INTEGER,
-            orderStatus INTEGER NOT NULL,
+            taxi_driver_id INTEGER,
+            customer_id INTEGER,
+            status INTEGER NOT NULL,
             class INTEGER NOT NULL,
             price FLOAT NOT NULL,
-            pointA VARCHAR(50) NOT NULL,
-            pointB VARCHAR(255) NOT NULL,
-            reviewGiven BOOLEAN DEFAULT NULL,
+            point_a VARCHAR(50) NOT NULL,
+            point_b VARCHAR(255) NOT NULL,
+            review_given BOOLEAN DEFAULT false,
             created_at TIMESTAMP DEFAULT NOW(),
             updated_at TIMESTAMP DEFAULT NOW(),
-            FOREIGN KEY(taxiDriverId) REFERENCES taxi_drivers(id),
-            FOREIGN KEY (customerId) REFERENCES customers(id)
+            FOREIGN KEY(taxi_driver_id) REFERENCES taxi_drivers(id),
+            FOREIGN KEY (customer_id) REFERENCES customers(id)
         );
-        ";
+        ';
         $this->connection->query($create);
     }
 

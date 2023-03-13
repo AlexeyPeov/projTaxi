@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,12 +63,3 @@
     </style>
 </head>
 <body>
-<main>
-    <?php echo $content; ?>
-</main>
-
-<footer>
-    &copy; 2023 Taxi
-</footer>
-</body>
-</html>

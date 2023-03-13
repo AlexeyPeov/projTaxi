@@ -1,6 +1,6 @@
 <?php
 
-namespace App\config;
+namespace App\Framework;
 class RouteLoader
 {
 
@@ -20,7 +20,11 @@ class RouteLoader
                 'customerRoutes' => [
                     //controllerRoutes
                     '/customer' => ['App\Controllers\CustomerController', 'index'],
+
+                    //todo наверно нужно придумать что то получше
+                    '/customer/orders' => ['App\Controllers\CustomerController', 'show'],
                     '/customer/{$id}' => ['App\Controllers\CustomerController', 'show'],
+
                     '/customer/update/{$id}' => ['App\Controllers\CustomerController', 'update'],
                     '/customer/create' => ['App\Controllers\CustomerController', 'create'],
                     '/customer/delete/{$id}' => ['App\Controllers\CustomerController', 'delete'],

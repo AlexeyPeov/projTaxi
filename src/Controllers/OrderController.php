@@ -3,8 +3,16 @@
 namespace App\Controllers;
 
 
+use App\Services\OrderService;
+
 class OrderController
 {
+    private OrderService $orderService;
+    public function __construct(OrderService $orderService)
+    {
+        $this->orderService = $orderService;
+    }
+
     public function index()
     {
         $phone = session('phoneNum');
@@ -127,15 +135,8 @@ class OrderController
     public function create(){
 
         //call a func to create order, and insert into db
-        //
+        $this->orderService->createOrder($_POST);
         //redirect to order
-        $phoneNumber = $_POST['phoneNumber'];
-        $name = $_POST['name'];
-        $carClass = $_POST['carClass'];
-        $from = $_POST['from'];
-        $to = $_POST['to'];
-        dd($_POST);
-
         header('Location: /customer/orders');
         exit;
     }

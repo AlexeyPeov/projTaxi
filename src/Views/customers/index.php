@@ -1,13 +1,15 @@
 <?php
-$content = '
-      <div class="form-container" style="display: flex;">
+include __DIR__ . "/../app.php";
+?>
+<main>
+    <div class="form-container" style="display: flex;">
         <form action="/order/create" method="POST">
             <b style="font-size: 40px;"> Create order</b> <br> <br> <br>
             <label for="phoneNumber">Phone Number:</label><br>
             <input type="text" id="phoneNumber" name="phoneNumber" required><br>
 
-            <label for="name">Name:</label><br>
-            <input type="text" id="firstName" name="name" required><br>
+            <label for="firstName">Name:</label><br>
+            <input type="text" id="firstName" name="firstName" required><br>
 
             <div class="radio-toolbar">
                 <p>Choose class:</p>
@@ -22,19 +24,23 @@ $content = '
             </div>
             <br>
 
-            <label for="from">Where From:</label><br>
-            <input type="text" id="from" name="from" required><br>
+            <label for="pointA">Where From:</label><br>
+            <input type="text" id="pointA" name="pointA" required><br>
 
-            <label for="to">Where To:</label><br>
-            <input type="text" id="to" name="to" required><br><br>
+            <label for="pointB">Where To:</label><br>
+            <input type="text" id="pointB" name="pointB" required><br><br>
 
             <input type="submit" value="Order">
         </form>
     </div>
     <script src="/public/resources/js/parsePhoneNumber.js"></script>
-    ';
+</main>
 
-include __DIR__ . "/../app.php";
+
+<?php
+include __DIR__ . "/../footer.php";
+?>
+
 
 
 

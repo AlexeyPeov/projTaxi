@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\config\RouteLoader;
+use App\Framework\RouteLoader;
 
 class GuestController
 {
