@@ -5,10 +5,12 @@ class CustomerController
 {
 
     public function index () : void {
-        require '../Views/customers/index.php';
+        require __DIR__ . '/../Views/customers/index.php';
     }
 
     public function show () {
+
+        require __DIR__ . '/../Views/customers/show.php';
     }
 
     public function create () {
@@ -30,10 +32,5 @@ class CustomerController
     public function destroy(){
 
     }
-
-    public function findByPhoneNum(){
-
-    }
-
 
 }

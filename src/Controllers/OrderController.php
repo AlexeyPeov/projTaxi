@@ -124,5 +124,20 @@ class OrderController
         }
         return redirect()->back();
     }
+    public function create(){
+
+        //call a func to create order, and insert into db
+        //
+        //redirect to order
+        $phoneNumber = $_POST['phoneNumber'];
+        $name = $_POST['name'];
+        $carClass = $_POST['carClass'];
+        $from = $_POST['from'];
+        $to = $_POST['to'];
+        dd($_POST);
+
+        header('Location: /customer/orders');
+        exit;
+    }
 
 }

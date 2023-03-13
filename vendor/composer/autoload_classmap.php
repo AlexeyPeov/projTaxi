@@ -6,23 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\App' => $baseDir . '/src/App.php',
-    'App\\Controllers\\CarController' => $baseDir . '/src/Controllers/CarController.php',
-    'App\\Controllers\\CustomerController' => $baseDir . '/src/Controllers/CustomerController.php',
-    'App\\Controllers\\GuestController' => $baseDir . '/src/Controllers/GuestController.php',
-    'App\\Controllers\\OrderController' => $baseDir . '/src/Controllers/OrderController.php',
-    'App\\Controllers\\TaxiDriverController' => $baseDir . '/src/Controllers/TaxiDriverController.php',
-    'App\\Models\\Car' => $baseDir . '/src/Models/Car.php',
-    'App\\Models\\Customer' => $baseDir . '/src/Models/Customer.php',
-    'App\\Models\\Order' => $baseDir . '/src/Models/Order.php',
-    'App\\Models\\TaxiDriver' => $baseDir . '/src/Models/TaxiDriver.php',
-    'App\\Repositories\\CarRepository' => $baseDir . '/src/Repositories/CarRepository.php',
-    'App\\Repositories\\CustomerRepository' => $baseDir . '/src/Repositories/CustomerRepository.php',
-    'App\\Repositories\\OrderRepository' => $baseDir . '/src/Repositories/OrderRepository.php',
-    'App\\Repositories\\TaxiDriverRepository' => $baseDir . '/src/Repositories/TaxiDriverRepository.php',
-    'App\\Services\\OrderService' => $baseDir . '/src/Services/OrderService.php',
-    'App\\Views\\layout\\Layout' => $baseDir . '/src/Views/layout/Layout.php',
-    'App\\config\\RouteLoader' => $baseDir . '/src/config/RouteLoader.php',
-    'App\\config\\Router' => $baseDir . '/src/config/Router.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

@@ -23,46 +23,6 @@ class OrderService
         $this->carRepository = $carRepository;
     }
 
-    public function getCustomerRepository(): CustomerRepository
-    {
-        return $this->customerRepository;
-    }
-
-    public function getOrderRepository(): OrderRepository
-    {
-        return $this->orderRepository;
-    }
-
-    public function getCarRepository(): CarRepository
-    {
-        return $this->carRepository;
-    }
-
-    public function getTaxiDriverRepository(): TaxiDriverRepository
-    {
-        return $this->taxiDriverRepository;
-    }
-
-    public function setCustomerRepository(CustomerRepository $customerRepository): void
-    {
-        $this->customerRepository = $customerRepository;
-    }
-
-    public function setOrderRepository(OrderRepository $orderRepository): void
-    {
-        $this->orderRepository = $orderRepository;
-    }
-
-    public function setCarRepository(CarRepository $carRepository): void
-    {
-        $this->carRepository = $carRepository;
-    }
-
-    public function setTaxiDriverRepository(TaxiDriverRepository $taxiDriverRepository): void
-    {
-        $this->taxiDriverRepository = $taxiDriverRepository;
-    }
-
     //CUSTOMER
 
     public function createOrder(

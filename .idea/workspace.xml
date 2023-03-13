@@ -4,23 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc34c26c-b2e9-4f38-88bf-6f991783ff4f" name="Changes" comment="tested main route">
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routesMethods.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3de5164a-18a1-4375-8488-2c39def9a51c/storage_v2/_src_/database/taxi.HjY2AA/schema/public.abK9xQ.meta" beforeDir="false" />
+    <list default="true" id="dc34c26c-b2e9-4f38-88bf-6f991783ff4f" name="Changes" comment="Additional composer files">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projTaxi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projTaxi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auxillary /Router.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migration.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Migration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/customers/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/whoami.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/GuestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/GuestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/OrderRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/OrderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/OrderService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/customers/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/customers/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/RouteLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/RouteLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +35,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,50 +52,60 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="2MS2zoHLmC1p6gHbR0m5eyZHZXs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/www/projTaxi/views/customers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.nodejs",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/www/projTaxi/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/views/customers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/taxi/resources/views/orders" />
       <recent name="$PROJECT_DIR$/taxi/resources/views/taxidrivers" />
       <recent name="$PROJECT_DIR$/taxi/resources/views/customers" />
-      <recent name="$PROJECT_DIR$/taxi/public/js" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.App.php">
     <configuration name="app.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/taxi/resources/js/app.js" working-dir="$PROJECT_DIR$/taxi/resources/js">
+      <method v="2" />
+    </configuration>
+    <configuration name="App.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/App.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.App.php" />
         <item itemvalue="Node.js.app.js" />
       </list>
     </recent_temporary>
@@ -104,7 +122,11 @@
       <workItem from="1677766188263" duration="12121000" />
       <workItem from="1677780096014" duration="6393000" />
       <workItem from="1677833944364" duration="18419000" />
-      <workItem from="1678437399773" duration="11773000" />
+      <workItem from="1678437399773" duration="26291000" />
+      <workItem from="1678602950214" duration="9723000" />
+      <workItem from="1678615471401" duration="5514000" />
+      <workItem from="1678684350856" duration="1939000" />
+      <workItem from="1678686313311" duration="6048000" />
     </task>
     <task id="LOCAL-00001" summary="yeah">
       <created>1678369800139</created>
@@ -134,7 +156,28 @@
       <option name="project" value="LOCAL" />
       <updated>1678376956247</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="trying to add composer autoload">
+      <created>1678453401531</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678453401531</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Made so application loads using App::init()">
+      <created>1678467775695</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678467775695</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Additional composer files">
+      <created>1678467835740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678467835740</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +198,10 @@
     <MESSAGE value="yeah" />
     <MESSAGE value="just cleaning up man.." />
     <MESSAGE value="tested main route" />
-    <option name="LAST_COMMIT_MESSAGE" value="tested main route" />
+    <MESSAGE value="trying to add composer autoload" />
+    <MESSAGE value="Made so application loads using App::init()" />
+    <MESSAGE value="Additional composer files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Additional composer files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -18,8 +18,8 @@ class Migration
             plates VARCHAR(50),
             color VARCHAR(50),
             carClass INTEGER,
-            created_at TIMESTAMP,
-            updated_at TIMESTAMP
+            created_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW()
         );
 
         CREATE TABLE customers (
@@ -33,17 +33,17 @@ class Migration
             orderCount INTEGER NOT NULL,
             orderDeclinedCount INTEGER NOT NULL,
             user_type VARCHAR(255) DEFAULT 'Customer',
-            created_at TIMESTAMP NOT NULL,
-            updated_at TIMESTAMP NOT NULL
+            created_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW()
         );
 
         CREATE TABLE taxi_drivers (
-            id INT NOT NULL AUTO_INCREMENT,
+            id SERIAL PRIMARY KEY,
             phoneNumber VARCHAR(20),
             password VARCHAR(255) NOT NULL,
             firstName VARCHAR(50) NOT NULL ,
             secondName VARCHAR(50) NOT NULL ,
-            birthday DATETIME NOT NULL ,
+            birthday TIMESTAMP NOT NULL ,
             experience INT,
             rating FLOAT,
             qualification varchar(20) NOT NULL,
@@ -51,7 +51,8 @@ class Migration
             reviewHeap INT,
             reviewsGiven INT,
             user_type VARCHAR(255) DEFAULT 'TaxiDriver',
-            PRIMARY KEY (id),
+            created_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW(),
             FOREIGN KEY(carDriving) REFERENCES cars(id)
         );
 
@@ -65,8 +66,8 @@ class Migration
             pointA VARCHAR(50) NOT NULL,
             pointB VARCHAR(255) NOT NULL,
             reviewGiven BOOLEAN DEFAULT NULL,
-            created_at TIMESTAMP NOT NULL,
-            updated_at TIMESTAMP NOT NULL,
+            created_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW(),
             FOREIGN KEY(taxiDriverId) REFERENCES taxi_drivers(id),
             FOREIGN KEY (customerId) REFERENCES customers(id)
         );

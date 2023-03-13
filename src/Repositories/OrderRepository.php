@@ -2,6 +2,9 @@
 
 namespace App\Repositories;
 
+use App\Models\Order;
+use PDO;
+
 class OrderRepository
 {
     private PDO $connection;
@@ -14,7 +17,7 @@ class OrderRepository
     public function findById(int $id): ?Order
     {
 
-        $specificOrder = "SELECT * FROM `order` WHERE id = :id";
+        $specificOrder = "SELECT * FROM orders WHERE id = :id";
         $statement = $this->connection->prepare($specificOrder);
         $statement->execute(["id" => $id]);
         $order = $statement->fetch();
@@ -31,7 +34,7 @@ class OrderRepository
                 $order->pointB,
                 date_create_from_format('Y-m-d H:i:s', $order->dayCreated),
                 $order->reviewGiven,
-                true
+
             );
         }
         return null;

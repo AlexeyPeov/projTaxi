@@ -1,7 +1,7 @@
 <?php
 $content = '
       <div class="form-container" style="display: flex;">
-        <form action="/order/submit" method="POST">
+        <form action="/order/create" method="POST">
             <b style="font-size: 40px;"> Create order</b> <br> <br> <br>
             <label for="phoneNumber">Phone Number:</label><br>
             <input type="text" id="phoneNumber" name="phoneNumber" required><br>
@@ -31,7 +31,7 @@ $content = '
             <input type="submit" value="Order">
         </form>
     </div>
-    <script src="/resources/js/parsePhoneNumber.js"></script>
+    <script src="/public/resources/js/parsePhoneNumber.js"></script>
     ';
 
 include __DIR__ . "/../app.php";

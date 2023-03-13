@@ -10,9 +10,9 @@ class GuestController
         include __DIR__ . '../Views/whoami.php';
     }*/
 
-    public static function index(): void
+    public function index(): void
     {
-        include __DIR__ . '/../Views/whoami.php';
+        require __DIR__ . '/../Views/whoami.php';
     }
 }
 

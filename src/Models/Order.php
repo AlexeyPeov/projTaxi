@@ -16,7 +16,6 @@ class Order
     private string $pointB;
     private ?DateTime $dayCreated;
     private bool $reviewGiven;
-    private bool $isSaved;
 
 
     const STATE_NEW = 1;
@@ -41,7 +40,6 @@ class Order
         string    $pointB,
         ?DateTime $dayCreated,
         bool      $reviewGiven,
-        bool      $isSaved
 
     )
     {
@@ -55,14 +53,9 @@ class Order
         $this->pointB = $pointB;
         $this->dayCreated = $dayCreated;
         $this->reviewGiven = $reviewGiven;
-        $this->isSaved = $isSaved;
     }
 
 
-    public function isSaved(): bool
-    {
-        return $this->isSaved;
-    }
 
     public function isReviewGiven(): bool
     {
