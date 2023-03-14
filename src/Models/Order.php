@@ -10,7 +10,7 @@ class Order
     const STATE_COMPLETE = 4;
     const STATE_FAILED = 0;
 
-    public static function calculatePrice(int $class, int $personalDiscount): float
+    public static function calculatePrice(int $class, int $personalDiscount): int
     {
         $priceDefault = rand(50, 250);
         $price = 0;
@@ -25,6 +25,17 @@ class Order
 
         $price -= $price * ($personalDiscount / 100);
         return $price;
+    }
+
+    public static function statusToString(int $state) : string {
+        return match ($state) {
+            self::STATE_NEW => "Created",
+            self::STATE_ACCEPTED => "Accepted",
+            self::STATE_IN_PROGRESS => "In Progress",
+            self::STATE_COMPLETE => "Complete",
+            self::STATE_FAILED => "Failed",
+            default => "Unknown State"
+        };
     }
 }
 

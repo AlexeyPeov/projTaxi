@@ -53,7 +53,14 @@ class ORM
     {
         $stmt = $this->connection->prepare("SELECT * FROM $table WHERE $columnName = :value");
         $stmt->execute([':value' => $value]);
-        $models = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $models = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+        foreach ($models as &$model) {
+            $model = (object) $model;
+        }
+
         return count($models) === 1 ? $models[0] : (count($models) > 1 ? $models : null);
     }
 
@@ -87,8 +94,14 @@ class ORM
         $arrKeys = [];
         $notNullArr = [];
         foreach ($arr as $k => $v) {
-            if ($v != null) {
-                $notNullArr[$k] = $v;
+            if ($v !== null) {
+
+                //weird bug otherwise..
+                if (is_bool($v)) {
+                    $notNullArr[$k] = (int) $v;
+                } else {
+                    $notNullArr[$k] = $v;
+                }
                 $arrKeys[] = $k;
             }
         }
@@ -104,7 +117,6 @@ class ORM
         $stmt->execute([$table]);
         $id = $stmt->fetchColumn();
 
-
         // Check if a row with the same id as the model exists in the table
         $stmt = $this->connection->prepare("SELECT * FROM $table WHERE $id = ?");
         $stmt->execute([$model->id]);
@@ -114,7 +126,7 @@ class ORM
             $update = [];
             foreach ($arrKeys as $column) {
                 if ($column != $id)
-                    $update[] = "$column = :$column";
+                    $update[] = "$column = :$column ";
             }
             $update = implode(',', $update);
             $stmt = $this->connection->prepare("UPDATE $table SET $update WHERE $id = :id");
@@ -124,6 +136,7 @@ class ORM
             $values = ':' . implode(', :', $arrKeys);
             $stmt = $this->connection->prepare("INSERT INTO $table ($columns) VALUES ($values)");
             $stmt->execute($notNullArr);
+
             $model->id = (int) $this->connection->lastInsertId();
         }
         return $model;

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 
 use App\Services\OrderService;
+use App\Framework\Redirect;
 
 class OrderController
 {
@@ -88,8 +89,14 @@ class OrderController
         return redirect('/order');
     }
 
-    public function update(Request $request)
+    public function update()
     {
+
+        if($_POST['action'] == 'Decline'){
+            $this->orderService->decline($_POST);
+        }
+        Redirect::back();
+
         //find order
         $order = Order::findOrFail($request->input('orderId'));
         //find taxiDriver
@@ -130,7 +137,7 @@ class OrderController
             $order->complete();
             $order->save();
         }
-        return redirect()->back();
+
     }
     public function create(){
 

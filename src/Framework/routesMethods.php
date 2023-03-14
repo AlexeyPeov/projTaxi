@@ -1,61 +1,26 @@
 <?php
 
 namespace App\Framework;
+use Exception;
 
-use App\Controllers\CarController;
-use App\Controllers\CustomerController;
-use App\Controllers\GuestController;
-use App\Controllers\OrderController;
-
-/*function initRouting(array $routes) : void{
-    $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-    if(array_key_exists($uri, $routes)){
-        require $routes[$uri];
-    } else {
-        http_response_code(404);
-        require $routes['/404'];
-        die();
+function redirect($path = null) {
+    if ($path === null) {
+        $path = '/';
     }
-}*/
-
-function errorPage(int $errorCode, array $routes) : void {
-    if(array_key_exists($errorCode, $routes['errorPages'])){
-        http_response_code($errorCode);
-        require $routes['errorPages'][$errorCode];
-        die();
-    }
+    header('Location: ' . $path);
+    exit;
 }
 
-/*function initRouting(array $routes) : void {
-    $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-    $method = $_SERVER['REQUEST_METHOD'];
-
-    foreach ($routes as $routeGroup) {
-        foreach ($routeGroup as $routePath => $controller) {
-            if ($uri === $routePath) {
-                require $controller;
-                return;
-            }
+function back() {
+    try {
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            throw new Exception('No previous page to redirect to');
         }
+    } catch (Exception $e) {
+        // Handle the exception by redirecting to '/' and displaying an error message
+        redirect('/');
+        echo 'Failed redirect back - nowhere to return to';
     }
-    errorPage(404, $routes);
-}*/
-
-function initRouting(array $routes) : void {
-    $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-    $method = $_SERVER['REQUEST_METHOD'];
-
-
-    foreach ($routes as $routeGroup) {
-        foreach ($routeGroup as $routePath => $controller) {
-            if ($uri === $routePath) {
-                call_user_func($controller);
-                return;
-            }
-        }
-    }
-    errorPage(404, $routes);
 }
-
-

@@ -1,4 +1,8 @@
 <?php
+
+use App\Models\Car;
+use App\Models\Order;
+
 include __DIR__ . "/../app.php";
 ?>
 
@@ -11,11 +15,11 @@ include __DIR__ . "/../app.php";
 
 
             <div class="sticker">
-                <p>Order Price: <?= $order->price; ?></p>
+                <p>Order Price: <?= $order->price . " $"; ?></p>
                 <p>Point A: <?=$order->point_a; ?></p>
                 <p>Point B: <?= $order->point_b; ?></p>
-                <p>Class: <?= $order->class; ?></p>
-                <p>Order status: <?= $order->status; ?> </p>
+                <p>Class: <?= Car::classToString($order->class); ?></p>
+                <p>Order status: <?= Order::statusToString($order->status); ?> </p>
                 <?php if ($taxiDriver) : ?>
                     <p>TaxiDriver: {{ $order['TaxiDriver']->firstName}}</p>
                     @if($order['TaxiDriver']->rating != null)
@@ -28,8 +32,8 @@ include __DIR__ . "/../app.php";
                 <?php if ($order->status == 2 || $order->status == 1) : ?>
 
                     <form action="/order/update" method="POST">
-                        <input name="orderId" id="orderId" type="hidden" value="{{$order->id}}">
-                        <input name="customerId" id="customerId" type="hidden" value="{{$order->customerId}}">
+                        <input name="orderId" id="orderId" type="hidden" value="<?= $order->id; ?>">
+                        <input name="customerId" id="customerId" type="hidden" value="<?= $order->customer_id; ?>">
                         <input name="action" class = "Decline" id="DeclineAsCustomer" type="submit" value="Decline">
                     </form>
 

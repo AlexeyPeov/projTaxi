@@ -15,11 +15,13 @@ class CustomerController
         require __DIR__ . '/../Views/customers/index.php';
     }
 
-    public function show () {
+    public function show () : void {
         $orm = $this->orderService->getORM();
         $customer = $orm->findById('customers', $_SESSION['id']);
         $taxiDriver = null;
         $orders = $orm->findByValue('orders', 'customer_id', $customer->id);
+
+        // моя грабля
         if(!is_array($orders)){
             $orders = [$orders];
         }

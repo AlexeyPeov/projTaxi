@@ -48,7 +48,7 @@ class RouteLoader
                         //OrderControllerRoutes
                         '/orders' => ['App\Controllers\OrderController', 'index'],
                         '/order/{$id}' => ['App\Controllers\OrderController', 'show'],
-                        '/order/update/{$id}' => ['App\Controllers\OrderController', 'update'],
+                        '/order/update' => ['App\Controllers\OrderController', 'update'],
                         '/order/create' => ['App\Controllers\OrderController', 'create'],
                         '/order/delete/{$id}' => ['App\Controllers\OrderController', 'delete'],
                     ],

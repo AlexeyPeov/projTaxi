@@ -56,7 +56,7 @@ class OrderService
         $order->price = Order::calculatePrice($order->class, $customer->personal_discount);
         $order->point_a = $request['pointA'];
         $order->point_b = $request['pointB'];
-        $order->reviewGiven = false;
+        $order->review_given = false;
         $this->orm->push('orders', $order);
 
         //then start session
@@ -107,6 +107,45 @@ class OrderService
         $order->calculateDayCreated();//поставить день создания(текущие дата и время)
 
         $this->orderRepository->save($order); */
+    }
+
+
+    public function decline(array $request) : void {
+        //find order
+
+        $order = $this->orm->findById('orders', $request['orderId']);
+
+
+        if($request['action'] == 'Decline') {
+
+            // if customer declines
+            if(!array_key_exists('taxiDriverId', $request)) {
+                $customer = $this->orm->findById('customers', $request['customerId']);
+                $customer->order_declined_count += 1;
+                $customer->updated_at = date('Y-m-d H:i:s');
+
+                $order->status = Order::STATE_FAILED;
+                $order->updated_at = date('Y-m-d H:i:s');
+                $this->orm->push('orders', $order);
+                $this->orm->push('customers', $customer);
+
+            } else {
+
+                $taxiDriver = $this->orm->findById('taxi_drivers', $request['taxiDriverId']);
+                $taxiDriver->order_declined_count += 1;
+                $taxiDriver->updated_at = date('Y-m-d H:i:s');
+
+                $order->status = Order::STATE_NEW;
+                $order->taxi_driver_id = null;
+                $order->updated_at = date('Y-m-d H:i:s');
+                $this->orm->push('orders', $order);
+                $this->orm->push('taxi_drivers', $taxiDriver);
+            }
+
+        } else {
+            echo "wrong request params at OrderService.decline()";
+            dd($request);
+        }
     }
     /*
        public function reviewOrder(int $orderId, int $customerId, int $review): void

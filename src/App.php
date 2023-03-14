@@ -33,6 +33,5 @@ class App
         $router = new Router($orderService);
         $router->initRouting(RouteLoader::get());
 
-
     }
 }
