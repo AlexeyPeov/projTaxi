@@ -34,6 +34,14 @@ class RouteLoader
                 'taxiDriverRoutes' =>
                     [
                         //TaxiDriverControllerRoutes
+                        '/taxidriver/auth' => ['App\Controllers\TaxiDriverController', 'auth'],
+                        '/taxidriver' => ['App\Controllers\TaxiDriverController', 'index'],
+                        '/taxidriver/{$id}' => ['App\Controllers\TaxiDriverController', 'show'],
+                        '/taxidriver/update' => ['App\Controllers\TaxiDriverController', 'update'],
+                        '/taxidriver/create' => ['App\Controllers\TaxiDriverController', 'create'],
+                        '/taxidriver/login' => ['App\Controllers\TaxiDriverController', 'login'],
+                        '/taxidriver/signup' => ['App\Controllers\TaxiDriverController', 'signup'],
+                        '/taxidriver/delete/{$id}' => ['App\Controllers\TaxiDriverController', 'delete'],
                     ],
 
 

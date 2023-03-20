@@ -3,7 +3,6 @@
 namespace App\Framework;
 
 use Exception;
-use JetBrains\PhpStorm\NoReturn;
 
 class Redirect {
     public static function redirect($path = null): void

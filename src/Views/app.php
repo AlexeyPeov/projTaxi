@@ -49,7 +49,7 @@
             margin: 0 20px;
         }
         .text-red-500 {
-            color: #ff7f7f;
+            color: #f56565;
         }
 
         .text-xs {

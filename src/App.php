@@ -9,12 +9,12 @@ use App\Models\Order;
 use App\Services\OrderService;
 use PDO;
 
+include __DIR__ .  "/Framework/csrf.php";
+
 
 class App
 {
     public function init(){
-
-        session_start();
 
         //db connection
         $env = parse_ini_file(__DIR__ . '/../.env');
@@ -31,6 +31,9 @@ class App
 
         //routes
         $router = new Router($orderService);
+
+        session_start();
+
         $router->initRouting(RouteLoader::get());
 
     }

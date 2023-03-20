@@ -5,169 +5,65 @@ use DateTime;
 
 class TaxiDriver
 {
-    private int $id;
-    private string $firstName;
-    private string $secondName;
-    private DateTime $birthday;
-    private int $experience;
-    private ?float $rating;
-    private string $qualification;
-    private int $carDriving;
-    private ?int $reviewHeap;
-    private ?int $reviewsGiven;
-    private bool $isSaved;
-
-    public function __construct(
-        int      $id,
-        string   $firstName,
-        string   $secondName,
-        DateTime $birthday,
-        int      $experience,
-        ?float   $rating,
-        string   $qualification,
-        int      $carDriving,
-        ?int     $reviewTotal,
-        ?int     $reviewsGiven,
-        bool     $isSaved
-    )
+    public static function displayRating(int $reviewsGiven, int $rating, int $reviewHeap): ?int
     {
-        $this->id = $id;
-        $this->firstName = $firstName;
-        $this->secondName = $secondName;
-        $this->birthday = $birthday;
-        $this->experience = $experience;
-        $this->rating = $rating;
-        $this->qualification = $qualification;
-        $this->carDriving = $carDriving;
-        $this->reviewHeap = $reviewTotal;
-        $this->reviewsGiven = $reviewsGiven;
-        $this->isSaved = $isSaved;
+        if ($reviewsGiven > 9) {
+            return $reviewHeap / $reviewsGiven;
+        }
+        return null;
     }
 
-    public function isSaved(): bool
-    {
-        return $this->isSaved;
-    }
+    public static function validateCreation (array $post) {
+        $errors = []; // $errors = TaxiDriver::validateCreation();
 
-    public function getReviewsGiven(): ?int
-    {
-        return $this->reviewsGiven;
-    }
+        // Validate Taxi Driver fields
+        if (empty($_POST['firstName']) || strlen($_POST['firstName']) < 3) {
+            $errors['firstName'] = 'The first name must be at least 3 characters.';
+        }
 
-    public function getReviewHeap(): ?int
-    {
-        return $this->reviewHeap;
-    }
+        if (empty($_POST['secondName']) || strlen($_POST['secondName']) < 3) {
+            $errors['secondName'] = 'The second name must be at least 3 characters.';
+        }
 
-    public function setReviewsGiven(int $reviewsGiven): void
-    {
-        $this->reviewsGiven = $reviewsGiven;
-    }
+        if (empty($_POST['birthday'])) {
+            $errors['birthday'] = 'The birthday field is required.';
+        } elseif (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $_POST['birthday'])) {
+            $errors['birthday'] = 'The birthday is not a valid date.';
+        } elseif (strtotime($_POST['birthday']) >= strtotime('-18 years')) {
+            $errors['birthday'] = 'You must be at least 18 years old.';
+        }
 
-    public function setReviewHeap(int $reviewHeap): void
-    {
-        $this->reviewHeap = $reviewHeap;
-    }
+        if (empty($_POST['phoneNumber'])) {
+            $errors['phoneNumber'] = 'The phone number field is required.';
+        } elseif (!preg_match('/^([0-9\s\-\+\(\)]*)$/', $_POST['phoneNumber']) || strlen($_POST['phoneNumber']) < 10 || strlen($_POST['phoneNumber']) > 19) {
+            $errors['phoneNumber'] = 'The phone number must be between 10 and 19 characters and only contain numbers, spaces, and these characters: -+().';
+        }
 
-    public function getCarDriving(): int
-    {
-        return $this->carDriving;
-    }
+        if (empty($_POST['password'])) {
+            $errors['password'] = 'The password field is required.';
+        } elseif (strlen($_POST['password']) < 6) {
+            $errors['password'] = 'The password must be at least 6 characters.';
+        } elseif ($_POST['password'] !== $_POST['password_confirmation']) {
+            $errors['password_confirmation'] = 'The password confirmation does not match.';
+        }
 
-    public function setCarDriving(int $carDriving): void
-    {
-        $this->carDriving = $carDriving;
-    }
+        // Validate Car fields
+        if (empty($_POST['brand'])) {
+            $errors['brand'] = 'The brand field is required.';
+        }
 
-    public function getQualification(): string
-    {
-        return $this->qualification;
-    }
+        if (empty($_POST['plates'])) {
+            $errors['plates'] = 'The plates field is required.';
+        }
 
-    public function getRating(): ?float
-    {
-        return $this->rating;
-    }
+        if (empty($_POST['color'])) {
+            $errors['color'] = 'The color field is required.';
+        }
 
-    public function getExperience(): int
-    {
-        return $this->experience;
-    }
-
-    public function getSecondName(): string
-    {
-        return $this->secondName;
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function getBirthday(): DateTime
-    {
-        return $this->birthday;
-    }
-
-    public function getFirstName(): string
-    {
-        return $this->firstName;
-    }
-
-    public function setRating(float $rating): void
-    {
-        $this->rating = $rating;
-    }
-
-    public function setQualification(string $qualification): void
-    {
-        $this->qualification = $qualification;
-    }
-
-    public function setExperience(int $experience): void
-    {
-        $this->experience = $experience;
-    }
-
-    public function setSecondName(string $secondName): void
-    {
-        $this->secondName = $secondName;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setBirthday(DateTime $birthday): void
-    {
-        $this->birthday = $birthday;
-    }
-
-    public function setFirstName(string $firstName): void
-    {
-        $this->firstName = $firstName;
-    }
-
-    public function takeCar(int $carId)
-    {
-
-    } //todo впадлу
-
-    public function reviewIsGiven(): void
-    {
-        $this->reviewsGiven = +1;
-    }
-
-    public function addReviewToHeap(int $review): void
-    {
-        $this->reviewHeap = +$review;
-    }
-
-    public function displayRating(): void
-    {
-        if ($this->reviewsGiven > 9) {
-            $this->rating = $this->reviewHeap / $this->reviewsGiven;
+        if (empty($_POST['carClass'])) {
+            $errors['carClass'] = 'The car class field is required.';
+        } elseif (!is_numeric($_POST['carClass']) || $_POST['carClass'] < 1 || $_POST['carClass'] > 3) {
+            $errors['carClass'] = 'The car class must be an integer between 1 and 3.';
         }
     }
 
